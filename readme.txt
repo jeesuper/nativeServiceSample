@@ -1,30 +1,30 @@
-Ä¿Â¼½á¹¹£º
+ï»¿ç›®å½•ç»“æ„ï¼š
 nativeBinderSample/
-©À©¤©¤ Android.mk
-©À©¤©¤ client
-©¦   ©À©¤©¤ Android.mk
-©¦   ©¸©¤©¤ XmanClient.cpp
-©À©¤©¤ common
-©¦   ©À©¤©¤ IXmanService.cpp
-©¦   ©¸©¤©¤ IXmanService.h
-©À©¤©¤ readme.txt
-©¸©¤©¤ server
-    ©À©¤©¤ Android.mk
-    ©¸©¤©¤ XmanServer.cpp
+â”œâ”€â”€ Android.mk
+â”œâ”€â”€ client
+â”‚   â”œâ”€â”€ Android.mk
+â”‚   â””â”€â”€ XmanClient.cpp
+â”œâ”€â”€ common
+â”‚   â”œâ”€â”€ IXmanService.cpp
+â”‚   â””â”€â”€ IXmanService.h
+â”œâ”€â”€ readme.txt
+â””â”€â”€ server
+    â”œâ”€â”€ Android.mk
+    â””â”€â”€ XmanServer.cpp
 
-IXmanService.cpp£ºÀïÃæÓĞ BpXmanService   BnXmanService
+IXmanService.cppï¼šé‡Œé¢æœ‰ BpXmanService   BnXmanService
 
 
-Á÷³Ì£º
+æµç¨‹ï¼š
 client  ---------------------   server
     |                              |
     |                              |
     |                              |
-BpXmanService  -------------  BnXmanService
+BpXmanService  -------------  BnXmanService(éœ€æœ‰å­ç±»ç»§æ‰¿Bnç«¯ä½œä¸ºæœåŠ¡ç«¯)
     |                           |
     |remote()->transact         | onTransact
     |                           |
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ´ËĞéÏßÒÔÉÏÊÇÒµÎñ²ã£¬¼´ĞèÒªÓÃ»§À´ÊµÏÖµÄ´úÂë
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - æ­¤è™šçº¿ä»¥ä¸Šæ˜¯ä¸šåŠ¡å±‚ï¼Œå³éœ€è¦ç”¨æˆ·æ¥å®ç°çš„ä»£ç 
     |                           |
 BpBinder     -------------    BBinder 
         |                     |
@@ -33,7 +33,7 @@ BpBinder     -------------    BBinder
 
 
 
-ÔËĞĞÁ½¸öbinÎÄ¼ş£¬´òÓ¡ÈçÏÂ£º
+è¿è¡Œä¸¤ä¸ªbinæ–‡ä»¶ï¼Œæ‰“å°å¦‚ä¸‹ï¼š
 01-30 16:33:41.028 D/XmanServer( 6873): XManService
 01-30 16:33:43.220 D/XmanClient( 6875): begin getValue
 01-30 16:33:43.220 D/IXmanService( 6875): BpXmanService---getValue---transact
@@ -49,3 +49,21 @@ BpBinder     -------------    BBinder
 01-30 16:33:43.221 D/IXmanService( 6873): BnXmanService---getValue---onTransact
 01-30 16:33:43.221 D/XmanServer( 6873): getValue
 01-30 16:33:43.221 D/XmanClient( 6875): Read the value from XmanService again:6
+
+
+java å±‚ï¼š
+æµç¨‹ï¼š
+client  ---------------------   server
+    |                              |
+    |                              |
+    |                              |
+  Proxyï¼ˆBpï¼‰------------------  Stubï¼ˆBnï¼‰  
+    |                           |
+    |remote()->transact         | onTransact
+    |                           |
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - æ­¤è™šçº¿ä»¥ä¸Šæ˜¯ä¸šåŠ¡å±‚ï¼Œå³éœ€è¦ç”¨æˆ·æ¥å®ç°çš„ä»£ç 
+    |                           |
+BpBinder     -------------    BBinder 
+        |                     |
+             binder driver
+
